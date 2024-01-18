@@ -13,16 +13,6 @@ div.form-container {
     justify-content: left;
     text-align: left;
 }
-div.card {
-    background-color: $card;
-    padding:4rem;
-    border-radius: 0.5rem;
-    color: $white;
-    width: 38rem;
-    height: 18rem;
-    text-align: left;
-    padding:2rem;
-}
 .h1-form {
     color: $red;
     font-style: italic;
@@ -35,6 +25,7 @@ div.card {
 }
 .h4-form {
     margin-bottom: 8rem;
+    font-size: 2rem;
 }
 .h6-form {
     font-weight: normal;
@@ -45,7 +36,6 @@ div.card {
 }
 .h3-form {
     color: $red;
-    margin-bottom: 6rem;
     margin-top: 4rem;
 }
 .section-hero {
@@ -58,9 +48,17 @@ div.card {
 }
 .card > label {
     margin-bottom: 1rem;
+    color:$white;
 }
 .card > select,
-.card > input {
+.card > input,
+select#chat_form_gender,
+input#chat_form_age,
+select#chat_form_skinType,
+select#chat_form_skinColor,
+select#chat_form_hairType,
+select#chat_form_hairTexture,
+select#chat_form_hairColor {
     border-radius: 0.3rem;
     background-color: $input;
     border: none;
@@ -69,12 +67,58 @@ div.card {
     width: 24rem;
     padding:0.2rem;
 }
-.btn.button_login.mt-4.text-uppercase.btn-progress {
-    color: $typo-color;
+div.card {
+    background-color: $card;
+    padding:4rem;
+    border-radius: 0.5rem;
+    color: $white;
+    width: 38rem;
+    height: auto;
+    text-align: left;
+    padding:2rem;
+    margin: 0 auto;
 }
-.progress {
-    margin-bottom: 5rem;
+.card .d-flex {
+    flex-direction: column;
 }
-div.progress-bar {
-    background-color: $red;
+.card .fw-bold {
+    font-size: 20px;
+    color: $white;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.card .text-muted {
+    margin-bottom: 2px;
+    color: $white !important;
+}
+.card .cdb-form {
+    margin-bottom: 10px;
+}
+.card .btn-dark {
+    margin-top: 10px;
+    background-color: $input;
+    margin-left: 0;
+}
+.d-flex.justify-content-end {
+    justify-content: flex-end;
+}
+div.my-0.mx-auto {
+    background: none !important;
+    margin:0 !important;
+}
+div.p-10.d-flex.flex-col.w-100 {
+    width:100%;
+}
+label.text-muted.mb-2 {
+    margin-top: 1rem;
+}
+div.d-flex.w-100.justify-content-end {
+    flex-direction: row;
+    text-align: center;
+}
+button.btn.btn-dark-block.mb-3.mt-5.ms-auto {
+    margin: 0 !important;
+}
+.ms-auto {
+    margin-left: 0 !important;
 }

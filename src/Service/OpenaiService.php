@@ -3,9 +3,11 @@
 namespace App\Service;
 
 use App\Entity\Chat;
+use App\Entity\Message;
 use Doctrine\ORM\EntityManagerInterface;
 use OpenAI\Client;
 use OpenAI\Factory;
+use OpenAI\Responses\Chat\CreateResponse;
 use OpenAI\ValueObjects\Transporter\Headers;
 
 class OpenaiService
@@ -38,17 +40,23 @@ class OpenaiService
     {
         //Initialisation de l'API Key
         $apiKey = $_ENV['OPENAI_APIKEY'];
-        $organisationID = $_ENV['OPENAI_ORGANISATION_ID'];
+        // $organisationID = $_ENV['OPENAI_ORGANISATION_ID'];
         //Création de l'objet Factory, qui permet la création du Client (avec la clé API)
         $factory = new Factory();
         $factory->withApiKey($apiKey);
-        $factory->withOrganization($organisationID);
+        // $factory->withOrganization($organisationID);
         $client = $factory->make();
 
         return $client;
     }
 
-    public function onNewChat(Chat $chat): bool
+    private function getMessageFromResponse(CreateResponse $gptResponse): string
+    {
+        $response = $gptResponse->choices;
+        return $response[0]->toArray()['message']['content'];
+    }
+
+    public function onNewChat(Chat $chat): Chat
     {
         $client = $this->createClient();
 
@@ -77,7 +85,6 @@ class OpenaiService
             $content .= "Ma peau est " . $chat->getSkinTypeLabel() . '.';
         }
         $content .= "Pourrais-tu me conseiller 3 produits L'Oréal pouvant m'aider à entretenir ma peau et mes cheveux en fonction des indications données ci-dessus. Sois concis STP.";
-
         $message = self::MESSAGE;
 
         $message['messages'] = [
@@ -88,18 +95,39 @@ class OpenaiService
             ]
         ];
 
-        $response = $client->chat()->create($message);
+        // $gptResponse = $client->chat()->create($message);
+        $response = $this->getMessageFromResponse($gptResponse);
 
         //Venir créer un objet Message, en stockant le $content envoyé à chatGPT (texte envoyé) et le ["message"]["content"] renvoyé par chatGPT (texte reçu)
 
         $message = new Message;
-        $message->setSent($content);
-        $message->setReceived($response->choices['message']['content']);
+        $message->setSend($content);
+        $message->setReceived($response);
         $message->setChat($chat);
 
         $this->entityManager->persist($message);
         $this->entityManager->flush();
 
-        dd($response->choices);
+        return $chat;
     }
+
+    public function onNewTutorial(string $question): string 
+    {
+        $client = $this->createClient();
+
+        $message = self::MESSAGE;
+
+        $message['messages'] = [
+            self::TUTO,
+            [
+                "role" => "user",
+                "content" => "$question"
+            ]
+        ];
+
+        $gptResponse = $client->chat()->create($message);
+        $response = $this->getMessageFromResponse($gptResponse);
+
+        return $response;
+    }    
 }
