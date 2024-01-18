@@ -77,6 +77,7 @@ class OpenaiService
             $content .= "Ma peau est " . $chat->getSkinTypeLabel() . '.';
         }
         $content .= "Pourrais-tu me conseiller 3 produits L'Oréal pouvant m'aider à entretenir ma peau et mes cheveux en fonction des indications données ci-dessus. Sois concis STP.";
+
         $message = self::MESSAGE;
 
         $message['messages'] = [
