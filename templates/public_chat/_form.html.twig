@@ -1,0 +1,39 @@
+{{ form_start(form) }}
+<form method="post" class="form-style">
+	<div class="row">
+		{% set columns = 2 %}
+		{% set colSize = 12 / columns %}
+		<div class="col-md-{{ colSize }} text-md-end col-form">
+			{{ form_label(form.gender, 'Genre') }}
+			{{ form_widget(form.gender) }}
+		</div>
+		<div class="col-md-{{ colSize }} text-md-end col-form">
+			{{ form_label(form.age, 'Age') }}
+			{{ form_widget(form.age) }}
+		</div>
+		<div class="col-md-{{ colSize }} text-md-end col-form">
+			{{ form_label(form.skinType, 'Type de peau') }}
+			{{ form_widget(form.skinType) }}
+		</div>
+		<div class="col-md-{{ colSize }} text-md-end col-form">
+			{{ form_label(form.skinColor, 'Couleur de peau') }}
+			{{ form_widget(form.skinColor) }}
+		</div>
+		<div class="col-md-{{ colSize }} text-md-end col-form">
+			{{ form_label(form.hairType, 'Type de cheveux') }}
+			{{ form_widget(form.hairType) }}
+		</div>
+		<div class="col-md-{{ colSize }} text-md-end col-form">
+			{{ form_label(form.hairTexture, 'Texture de cheveux') }}
+			{{ form_widget(form.hairTexture) }}
+		</div>
+		<div class="col-md-{{ colSize }} text-md-end col-form">
+			{{ form_label(form.hairColor, 'Couleur de cheveux') }}
+			{{ form_widget(form.hairColor) }}
+		</div>
+
+		{{ form_rest(form) }}
+		<button class="btn btn-lg btn-primary submit-form btn-criteria" style="margin-top:1rem">{{ button_label|default('Enregistrer') }}</button>
+	</div>
+</form>
+{{ form_end(form) }}

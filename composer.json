@@ -10,6 +10,10 @@
         "doctrine/doctrine-bundle": "^2.11",
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^2.17",
+<<<<<<< HEAD
+=======
+        "guzzlehttp/guzzle": "^7.8",
+>>>>>>> createBDD
         "nyholm/psr7": "^1.8",
         "openai-php/client": "^0.8.1",
         "phpdocumentor/reflection-docblock": "^5.3",
@@ -42,7 +46,10 @@
         "symfony/ux-turbo": "^2.13",
         "symfony/validator": "7.0.*",
         "symfony/web-link": "7.0.*",
+        "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "7.0.*",
+        "symfonycasts/reset-password-bundle": "^1.20",
+        "symfonycasts/verify-email-bundle": "^1.16",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0"
     },
