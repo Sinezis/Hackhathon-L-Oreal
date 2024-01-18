@@ -1,8 +1,7 @@
-// Variables
-@import "variables.css";
-// Navbar
-@import "dashboard/navbar.js";
-@import "dashboard/navbar.scss";
-@import "dashboard/dashboard.scss";
 // Bootstrap
 @import "~bootstrap/scss/bootstrap";
+// Variables
+@import "variables.scss";
+@import "dashboard/dashboard.scss";
+@import "dashboard/navbar.scss";
+@import "dashboard/home.scss";

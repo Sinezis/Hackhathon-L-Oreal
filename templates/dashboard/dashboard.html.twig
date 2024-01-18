@@ -6,7 +6,6 @@
         <link rel="icon" type="image/png" href="{{ asset('build/images/logo-wild-code-school.svg') }}"/>
         <title>{% block title %}Dashboard{% endblock %}</title>
 
-        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -15,10 +14,46 @@
             {{ importmap('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body class="body_dashboard">
         {% block body %}
-        {% include 'dashboard/_navbar.html.twig' %}
-            <h2 class="title_dashboard"><i class="fa-solid fa-house"></i>Hello je suis un dashboard !</h2>
-        {% endblock %}
+        {# Header #}
+        <header>
+            {# Navbar top #}
+            <nav class="navbar_dashboard">
+                <img src="{{ asset('images/logo-loreal-reveal-yourself-blanc.svg') }}" class="logo_dashboard">
+            </nav>
+            {# Aside #}
+            <div class="aside_dashboard">
+                <ul class="ul_dashboard">
+                    <li class="li_dashboard">
+                        <a href="#" class="a_dashboard">
+                           <i class="fa-solid fa-house"></i>
+                            <span class="span_dashboard">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="li_dashboard">
+                        <a href="#" class="a_dashboard">
+                            <i class="fa-solid fa-image"></i>
+                            <span class="span_dashboard">Images</span>
+                        </a>
+                    </li>	
+                    <li class="li_dashboard">
+                        <a href="#" class="a_dashboard">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span class="span_dashboard">Analytics</span>
+                        </a>
+                    </li>
+                </ul>
+        </header>
+        	<main class="main_dashboard">
+                {% block content %}
+                    {# Insérez votre contenu ici #}
+                {% endblock %}
+            </main>
+        {# Footer #}
+        <footer class="footer_dashboard">
+            <p>Crée avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
+        </footer>
+        {% endblock %}		
     </body>
 </html>

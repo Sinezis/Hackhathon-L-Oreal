@@ -1,0 +1,36 @@
+.phrase_home-dashboard {
+    font-family: $primary-font;
+    color: lighten($grey-blue, 30%);
+    font-size: $h5-size;
+    letter-spacing: 2px;
+}
+
+.widget-images_dashboard {
+    background-color: $red;
+    border-radius: 25px;
+    width: 70%;
+    height: 30vh;
+    padding: 5% 5% 3% 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+.widget-h3_dashboard {
+    font-family: $primary-font;
+    font-size: 6rem;
+    color: $white;
+    font-weight: 400;
+    text-align: left;
+}
+
+.widget-analytics_dashboard {
+    background: ;
+    border-radius: 25px;
+    width: 30%;
+    height: 30vh;
+    padding: 5% 5% 3% 3%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
