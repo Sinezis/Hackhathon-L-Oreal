@@ -1,0 +1,134 @@
+.body_login {
+    background-color: $bg-dark-color;
+}
+
+.navbar_login,
+.footer_login {
+    background-color: $mid-blue;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    right: 0;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    z-index: 999;
+}
+
+.navbar_login {
+    top: 0;
+    justify-content: center;
+    height: 10vh;
+}
+
+.logo_login {
+    max-width: 10vw;
+}
+
+// Form du login
+
+.section_login {
+    width: 100%;
+    margin-top: 10vh;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_login {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.title_login {
+    font-family: $primary-font;
+    color: $white;
+    font-size: $h4-size;
+}
+
+.input_login {
+    background-color: $grey-blue;
+    color: $white;
+    width: 100%;
+    height: auto;
+    font-family: $primary-font;
+    font-weight: 400;
+    padding: 3%;
+    border: 0px;
+
+    &:focus {
+        border: 1px solid $white;
+    }
+
+    &::placeholder {
+        color: $white;
+        opacity: 1;
+    }
+}
+
+.link-inscription_login {
+    position: absolute;
+    top: 13vh;
+    right: 3vw;
+    color: $grey-blue;
+
+    a {
+        color: $white;
+        font-weight: 600;
+
+        &:hover {
+            color: $red;
+        }
+    }
+}
+
+.reinitialiser-mot-de-passe_login {
+    color: lighten($grey-blue, 0.6);
+    font-style: italic;
+
+    &:hover {
+        color: $red;
+    }
+}
+
+/* Boutons */
+
+.btn-primary {
+    font-family: $primary-font;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: $btn-color;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: $white;
+    letter-spacing: 1.2px;
+    width: 50%;
+    height: auto;
+    padding: 3% 5% 3% 5%;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    justify-content: right;
+
+    &:hover {
+        opacity: 0.7;
+        transition-duration: 250ms;
+    }
+}
+
+// Footer
+
+.footer_login {
+    font-family: $primary-font;
+    color: $white;
+    bottom: 0;
+    justify-content: right;
+    height: 7vh;
+}
