@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau compte{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1 class="mx-sm-4">Création de votre compte </h1>
+
+    {{ form_errors(registrationForm) }}
+    {{ form_start(registrationForm) }}
+    <div class="form-group mx-sm-4 mb-2">
+        {{ form_row(registrationForm.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Firstname'}}) }}
+    </div>
+    <div class="form-group mx-sm-4 mb-2">
+        {{ form_row(registrationForm.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Lastname'}}) }}
+    </div>
+    <div class="form-group mx-sm-4 mb-2">
+        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+    </div>
+    <div class="form-group mx-sm-4 mb-2">
+        {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
+    </div>
+    <div class="form-check mx-sm-4">
+        {{ form_row(registrationForm.agreeTerms, {'label_attr': {'class': 'form-check-label'}, 'attr': {'class': 'form-check-input'}}) }}
+        <label class="form-check-label" for="{{ registrationForm.agreeTerms.vars.id }}">
+    </div>
+
+    <button type="submit" class="btn btn-primary my-btn  mx-sm-4 mb-2">Register</button>
+    {{ form_end(registrationForm) }}
+    
+{% endblock %}
