@@ -52,8 +52,31 @@ class OpenaiService
     {
         $client = $this->createClient();
 
-        //TODO: remplacer par les infos venant du formulaire
-        $content = "je viens du front";
+        //Pimper avec les infos venant du formulaire
+        $content = "";
+        if ($chat->getGender()!=1) {
+            ($chat->getGender() == 2) ? $gender = "e femme" : $gender = " homme";
+            $content .= "Je suis un" . $gender . ".";
+        } 
+        if ($chat->getAge()!=NULL) {
+            $content .= "J'ai " . $chat->getAge() . " ans .";
+        }
+        if ($chat->getHairType()!=1) {
+            $content .= "Mes cheveux sont " . $chat->getHairTypeLabel() . ".";
+        }
+        if ($chat->getHairTexture()!=1) {
+            $content .= "Mes cheveux sont " . $chat->getHairTextureLabel() . '.';
+        }
+        if ($chat->getHairColor()!=1) {
+            $content .= "Mes cheveux sont " . $chat->getHairColorLabel() . '.';
+        }
+        if ($chat->getSkinColor()!=1) {
+            $content .= "Ma peau est de type " . $chat->getSkinColorLabel() . '.'; 
+        }
+        if ($chat->getSkinType()!=1) {
+            $content .= "Ma peau est " . $chat->getSkinTypeLabel() . '.';
+        }
+        $content .= "Pourrais-tu me conseiller 3 produits L'Oréal pouvant m'aider à entretenir ma peau et mes cheveux en fonction des indications données ci-dessus. Sois concis STP.";
         $message = self::MESSAGE;
 
         $message['messages'] = [
@@ -64,7 +87,7 @@ class OpenaiService
             ]
         ];
 
-        //$response = $client->chat()->create($message);
+        $response = $client->chat()->create($message);
 
         //Venir créer un objet Message, en stockant le $content envoyé à chatGPT (texte envoyé) et le ["message"]["content"] renvoyé par chatGPT (texte reçu)
 
