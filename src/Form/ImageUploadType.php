@@ -19,10 +19,6 @@ class ImageUploadType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            /*->add('category', EntityType::class, [
-                'class' => Product::class,
-                'choice_label' => 'productName',
-            ])*/
             ->add('product', EntityType::class, [
                 'class' => Product::class,
                 'choice_label' => 'productName',
