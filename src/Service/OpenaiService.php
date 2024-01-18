@@ -3,9 +3,11 @@
 namespace App\Service;
 
 use App\Entity\Chat;
+use App\Entity\Message;
 use Doctrine\ORM\EntityManagerInterface;
 use OpenAI\Client;
 use OpenAI\Factory;
+use OpenAI\Responses\Chat\CreateResponse;
 use OpenAI\ValueObjects\Transporter\Headers;
 
 class OpenaiService
@@ -48,7 +50,13 @@ class OpenaiService
         return $client;
     }
 
-    public function onNewChat(Chat $chat): bool
+    private function getMessageFromResponse(CreateResponse $gptResponse): string
+    {
+        $response = $gptResponse->choices;
+        return $response[0]->toArray()['message']['content'];
+    }
+
+    public function onNewChat(Chat $chat): Chat
     {
         $client = $this->createClient();
 
@@ -88,18 +96,19 @@ class OpenaiService
             ]
         ];
 
-        $response = $client->chat()->create($message);
+        $gptResponse = $client->chat()->create($message);
+        $response = $this->getMessageFromResponse($gptResponse);
 
         //Venir créer un objet Message, en stockant le $content envoyé à chatGPT (texte envoyé) et le ["message"]["content"] renvoyé par chatGPT (texte reçu)
 
         $message = new Message;
-        $message->setSent($content);
-        $message->setReceived($response->choices['message']['content']);
+        $message->setSend($content);
+        $message->setReceived($response);
         $message->setChat($chat);
 
         $this->entityManager->persist($message);
         $this->entityManager->flush();
 
-        dd($response->choices);
+        return $chat;
     }
 }

@@ -36,13 +36,14 @@ class OpenAiController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($chat);
-            $openAIService->onNewChat($chat);
+            $chat = $openAIService->onNewChat($chat);
 
             $entityManager->flush();
-        } else if ($form->isSubmitted()) {
-            dd($form->getErrors(true));
-        }
 
+            return $this->redirectToRoute('chat_show', [
+                'id' => $chat->getId()
+            ]);
+        } 
         // TODO: Création de l'entité message
         // TODO: envoie de la requête à chatgpt
         // TODO: récupération de la réponse
