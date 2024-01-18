@@ -5,8 +5,11 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     openai_api_key: '%env(OPENAI_APIKEY)'
+    upload_directory: '%kernel.project_dir%/public/uploads/images/products/'
 
 services:
+    App\DataFixtures\:
+        resource: '../src/DataFixtures'
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

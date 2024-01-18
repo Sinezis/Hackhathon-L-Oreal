@@ -22,6 +22,10 @@ class Message
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $send = null;
 
+    #[ORM\ManyToOne(inversedBy: 'messages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Chat $chat = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -47,6 +51,18 @@ class Message
     public function setSend(?string $send): static
     {
         $this->send = $send;
+
+        return $this;
+    }
+
+    public function getChat(): ?Chat
+    {
+        return $this->chat;
+    }
+
+    public function setChat(?Chat $chat): static
+    {
+        $this->chat = $chat;
 
         return $this;
     }

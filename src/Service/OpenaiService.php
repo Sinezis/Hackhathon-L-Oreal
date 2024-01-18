@@ -95,7 +95,8 @@ class OpenaiService
             ]
         ];
 
-        // $gptResponse = $client->chat()->create($message);
+        $gptResponse = $client->chat()->create($message);
+
         $response = $this->getMessageFromResponse($gptResponse);
 
         //Venir créer un objet Message, en stockant le $content envoyé à chatGPT (texte envoyé) et le ["message"]["content"] renvoyé par chatGPT (texte reçu)
