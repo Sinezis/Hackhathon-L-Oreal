@@ -180,7 +180,7 @@ class Chat
 
     public function getHairTextureLabel(): string
     {
-        return self::TEXTURE_LABEL[$this->hairTexture];
+        return self::HAIR_TEXTURE[$this->hairTexture];
     }
 
     public function setHairTexture(int $hairTexture): static
@@ -197,7 +197,7 @@ class Chat
 
     public function getHairColorLabel(): string
     {
-        return self::HAIR-COLOR[$this->hairColor];
+        return self::HAIR_COLOR[$this->hairColor];
     }
 
     public function setHairColor(?int $hairColor): static

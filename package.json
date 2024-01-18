@@ -2,6 +2,7 @@
     "devDependencies": {
         "@babel/core": "^7.17.0",
         "@babel/preset-env": "^7.16.0",
+        "@fortawesome/fontawesome-free": "^6.5.1",
         "@symfony/webpack-encore": "^4.0.0",
         "bootstrap": "^5.3.2",
         "core-js": "^3.23.0",
@@ -19,5 +20,9 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@a2lix/symfony-collection": "^0.6.1",
+        "@popperjs/core": "^2.11.8"
     }
 }

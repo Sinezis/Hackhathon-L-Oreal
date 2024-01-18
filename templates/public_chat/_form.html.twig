@@ -1,39 +1,72 @@
-{{ form_start(form) }}
-<form method="post" class="form-style">
-	<div class="row">
-		{% set columns = 2 %}
-		{% set colSize = 12 / columns %}
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.gender, 'Genre') }}
-			{{ form_widget(form.gender) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.age, 'Age') }}
-			{{ form_widget(form.age) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.skinType, 'Type de peau') }}
-			{{ form_widget(form.skinType) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.skinColor, 'Couleur de peau') }}
-			{{ form_widget(form.skinColor) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.hairType, 'Type de cheveux') }}
-			{{ form_widget(form.hairType) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.hairTexture, 'Texture de cheveux') }}
-			{{ form_widget(form.hairTexture) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.hairColor, 'Couleur de cheveux') }}
-			{{ form_widget(form.hairColor) }}
-		</div>
+<div class="container-fluid text-center" style="margin-top:2rem">
+	<h6 class="h6-form">Reveal Yourself aide nos clients à trouver</br>
+	les produits les plus adaptés selon leurs</br>
+	critères du moment</h6>
+	<h3 class="h3-form">Et si on apprenait à se connaître ?</h3>
+</div>
 
-		{{ form_rest(form) }}
-		<button class="btn btn-lg btn-primary submit-form btn-criteria" style="margin-top:1rem">{{ button_label|default('Enregistrer') }}</button>
+{{ form_start(form) }}
+	<div class="container form-container">
+
+			<div id="step1" class="form-step mx-auto text-left">
+				<div class="card" style="margin-bottom:2rem">	
+					{{ form_label(form.gender, 'Je suis') }}
+					{{ form_widget(form.gender) }}
+					<button type="button" onclick="nextStep(1)" class="btn button_login mt-4 text-uppercase btn-progress">Suivant</button>
+				</div>
+			</div>
+
+			<div id="step2" class="form-step mx-auto text-left" style="display: none;">
+				<div class="card" style="margin-bottom:2rem">
+				{{ form_label(form.age, 'Quel est mon âge ?') }}
+				{{ form_widget(form.age) }}
+				<button type="button" onclick="prevStep(2)" class="btn button_login mt-4 text-uppercase btn-progress">Précédent</button>
+		        <button type="button" onclick="nextStep(2)" class="btn button_login mt-4 text-uppercase btn-progress">Suivant</button>
+			</div>
+
+			<div id="step3" class="form-step mx-auto text-left" style="display: none;">
+				<div class="card" style="margin-bottom:2rem">
+				{{ form_label(form.skinType, 'Quel est mon type de peau ?') }}
+				{{ form_widget(form.skinType) }}
+				<button type="button" onclick="prevStep(3)" class="btn button_login mt-4 text-uppercase btn-progress">Précédent</button>
+		        <button type="button" onclick="nextStep(3)" class="btn button_login mt-4 text-uppercase btn-progress">Suivant</button>
+				</div>
+			</div>
+
+			<div id="step4" class="form-step mx-auto text-left" style="display: none;">
+				<div class="card" style="margin-bottom:2rem">
+				{{ form_label(form.skinColor, 'Quelle est la couleur de ma peau ?') }}
+				{{ form_widget(form.skinColor) }}
+				<button type="button" onclick="prevStep(4)" class="btn button_login mt-4 text-uppercase btn-progress">Précédent</button>
+		        <button type="button" onclick="nextStep(4)" class="btn button_login mt-4 text-uppercase btn-progress">Suivant</button>
+				</div>
+			</div>
+
+			<div id="step5" class="form-step mx-auto text-left" style="display: none;">
+				<div class="card" style="margin-bottom:2rem">
+				{{ form_label(form.hairType, 'Quel est mon type de cheveux ?') }}
+				{{ form_widget(form.hairType) }}
+				<button type="button" onclick="prevStep(5)" class="btn button_login mt-4 text-uppercase btn-progress">Précédent</button>
+		        <button type="button" onclick="nextStep(5)" class="btn button_login mt-4 text-uppercase btn-progress">Suivant</button>
+				</div>
+			</div>
+
+			<div id="step6" class="form-step mx-auto text-left" style="display: none;">
+				<div class="card" style="margin-bottom:2rem">
+				{{ form_label(form.hairTexture, 'Quelle est la texture de mes cheveux ?') }}
+				{{ form_widget(form.hairTexture) }}
+				<button type="button" onclick="prevStep(6)" class="btn button_login mt-4 text-uppercase btn-progress">Précédent</button>
+		        <button type="button" onclick="nextStep(6)" class="btn button_login mt-4 text-uppercase btn-progress">Suivant</button>
+				</div>
+			</div>
+
+			<div id="step7" class="form-step mx-auto text-left" style="display: none;">
+				<div class="card" style="margin-bottom:2rem">
+				{{ form_label(form.hairColor, 'Quelle est la couleur de mes cheveux ?') }}
+				{{ form_widget(form.hairColor) }}
+				<button type="button" onclick="prevStep(7)" class="btn button_login mt-4 text-uppercase btn-progress">Précédent</button>
+				</div>
+			</div>
+			<button class="btn btn-secondary submit-form" style="margin-top:1rem">{{ button_label|default('Enregistrer') }}</button>
 	</div>
-</form>
 {{ form_end(form) }}
