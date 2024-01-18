@@ -1,0 +1,124 @@
+$background-color:#0A0C14;
+$card:#1c1e29;
+$red:#e32847;
+$typo-color:#f6f0ee;
+$white:#ffffff;
+$input: #4A4F6E;
+
+main {
+    background-color: $background-color;
+    color: $white;
+}
+div.form-container {
+    justify-content: left;
+    text-align: left;
+}
+.h1-form {
+    color: $red;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 8rem;
+}
+.h2-form {
+    color: $red;
+    font-size: 8rem;
+}
+.h4-form {
+    margin-bottom: 8rem;
+    font-size: 2rem;
+}
+.h6-form {
+    font-weight: normal;
+    line-height: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-size: 1.3rem;
+}
+.h3-form {
+    color: $red;
+    margin-top: 4rem;
+}
+.section-hero {
+    width: 100%;
+    height: 70vh;
+    display: block;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 6rem;
+}
+.card > label {
+    margin-bottom: 1rem;
+    color:$white;
+}
+.card > select,
+.card > input,
+select#chat_form_gender,
+input#chat_form_age,
+select#chat_form_skinType,
+select#chat_form_skinColor,
+select#chat_form_hairType,
+select#chat_form_hairTexture,
+select#chat_form_hairColor {
+    border-radius: 0.3rem;
+    background-color: $input;
+    border: none;
+    color: $white;
+    height: 2.5rem;
+    width: 24rem;
+    padding:0.2rem;
+}
+div.card {
+    background-color: $card;
+    padding:4rem;
+    border-radius: 0.5rem;
+    color: $white;
+    width: 38rem;
+    height: auto;
+    text-align: left;
+    padding:2rem;
+    margin: 0 auto;
+}
+.card .d-flex {
+    flex-direction: column;
+}
+.card .fw-bold {
+    font-size: 20px;
+    color: $white;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.card .text-muted {
+    margin-bottom: 2px;
+    color: $white !important;
+}
+.card .cdb-form {
+    margin-bottom: 10px;
+}
+.card .btn-dark {
+    margin-top: 10px;
+    background-color: $input;
+    margin-left: 0;
+}
+.d-flex.justify-content-end {
+    justify-content: flex-end;
+}
+div.my-0.mx-auto {
+    background: none !important;
+    margin:0 !important;
+}
+div.p-10.d-flex.flex-col.w-100 {
+    width:100%;
+}
+label.text-muted.mb-2 {
+    margin-top: 1rem;
+}
+div.d-flex.w-100.justify-content-end {
+    flex-direction: row;
+    text-align: center;
+}
+button.btn.btn-dark-block.mb-3.mt-5.ms-auto {
+    margin: 0 !important;
+}
+.ms-auto {
+    margin-left: 0 !important;
+}
