@@ -18,7 +18,8 @@ class DefaultController extends AbstractController
         return $this->render('index.html.twig');
     }
 
-    #[Route('/seoModule', name: 'app_seo')]
+    // Moved method to DashboardController
+    /*#[Route('/seoModule', name: 'app_seo')]
     public function seoForm(Request $request, EntityManagerInterface $entityManager): Response
     {
         $picture = new Picture();
@@ -35,7 +36,7 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('seo/index.html.twig', ['form' => $form]);
-    }
+    }*/
 
     #[Route('/seoModule/imageName/{id}', name: 'app_imageName')]
     public function generateName(Picture $picture): Response

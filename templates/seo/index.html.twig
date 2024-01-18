@@ -1,4 +1,7 @@
-{% block content %}
+{% extends 'dashboard/dashboard.html.twig' %}
+
+{% block body %}
+
 <div class="container mt-5 border-general p-5">
     {{ form_start(form) }}
     {{ form_widget(form) }}

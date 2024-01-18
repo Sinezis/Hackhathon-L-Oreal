@@ -40,11 +40,11 @@ class OpenaiService
     {
         //Initialisation de l'API Key
         $apiKey = $_ENV['OPENAI_APIKEY'];
-        $organisationID = $_ENV['OPENAI_ORGANISATION_ID'];
+        // $organisationID = $_ENV['OPENAI_ORGANISATION_ID'];
         //Création de l'objet Factory, qui permet la création du Client (avec la clé API)
         $factory = new Factory();
         $factory->withApiKey($apiKey);
-        $factory->withOrganization($organisationID);
+        // $factory->withOrganization($organisationID);
         $client = $factory->make();
 
         return $client;
@@ -85,7 +85,6 @@ class OpenaiService
             $content .= "Ma peau est " . $chat->getSkinTypeLabel() . '.';
         }
         $content .= "Pourrais-tu me conseiller 3 produits L'Oréal pouvant m'aider à entretenir ma peau et mes cheveux en fonction des indications données ci-dessus. Sois concis STP.";
-
         $message = self::MESSAGE;
 
         $message['messages'] = [
@@ -97,6 +96,7 @@ class OpenaiService
         ];
 
         $gptResponse = $client->chat()->create($message);
+
         $response = $this->getMessageFromResponse($gptResponse);
 
         //Venir créer un objet Message, en stockant le $content envoyé à chatGPT (texte envoyé) et le ["message"]["content"] renvoyé par chatGPT (texte reçu)
