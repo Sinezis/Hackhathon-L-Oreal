@@ -111,4 +111,24 @@ class OpenaiService
 
         return $chat;
     }
+
+    public function onNewTutorial(string $question): string 
+    {
+        $client = $this->createClient();
+
+        $message = self::MESSAGE;
+
+        $message['messages'] = [
+            self::TUTO,
+            [
+                "role" => "user",
+                "content" => "$question"
+            ]
+        ];
+
+        $gptResponse = $client->chat()->create($message);
+        $response = $this->getMessageFromResponse($gptResponse);
+
+        return $response;
+    }    
 }

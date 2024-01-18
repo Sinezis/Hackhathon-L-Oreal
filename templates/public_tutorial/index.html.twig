@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<div>
+			{{ form_start(form) }}
+		</div>
+		{{ form_rest(form) }}
+		<button class="btn btn-lg btn-primary submit-form btn-criteria" style="margin-top:1rem">{{ button_label|default('Enregistrer') }}</button>
+		{{ form_end(form) }}
+	</div>
+{% endblock %}
