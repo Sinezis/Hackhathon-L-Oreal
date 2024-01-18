@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}L'oréal - Accueil{% endblock %}
+
+{% block body %}
+{% if app.user %}
+    <a class="px-2" href="{{ path('app_logout') }}"> Se déconnecter</a>
+{% else %}
+    <a href="{{ path('app_login') }}"> Se connecter</a>
+{% endif %}
+<h1>Bienvenue</h1>
+{% endblock %}
