@@ -12,6 +12,10 @@
         "webpack-cli": "^4.10.0",
         "webpack-notifier": "^1.15.0"
     },
+    "dependencies": {
+        "@popperjs/core": "^2.11.8",
+        "bootstrap-icons": "^1.11.3"
+    },
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
