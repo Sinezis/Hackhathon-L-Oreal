@@ -7,8 +7,9 @@ import './bootstrap.js';
  */
 import './styles/app.scss';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
-
+// Bootstrap
+import './bootstrap';
+require('bootstrap');
 
 // Font Awesome
 require('@fortawesome/fontawesome-free/css/all.min.css');
