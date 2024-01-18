@@ -31,4 +31,12 @@ class DashboardController extends AbstractController
             'controller_name' => 'DashboardController',
         ]);
     }
+
+    #[Route('/analytics', name: 'analytics')]
+    public function analytics(): Response
+    {
+        return $this->render('dashboard/analytics.html.twig', [
+            'controller_name' => 'DashboardController',
+        ]);
+    }
 }

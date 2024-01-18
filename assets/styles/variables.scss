@@ -31,30 +31,3 @@ $button-color-danger: #EA5455;
 // Graisses
 // Margins et paddings
 // Modules
-
-
-/* Boutons */
-.btn-primary {
-    font-family: $primary-font;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: $btn-color;
-    border: 1px solid transparent;
-    border-radius: 0;
-    color: $white;
-    display: inline-block;
-    letter-spacing: 1.2px;
-    width: auto;
-    padding: 1.125rem 0.75rem;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background-color .25s ease-out, color .25s ease-out;
-    vertical-align: middle;
-
-    &:hover {
-        background-color: $btn-color-hover;
-    }
-}

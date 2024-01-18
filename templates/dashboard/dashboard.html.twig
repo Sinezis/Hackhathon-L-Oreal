@@ -26,21 +26,27 @@
             <div class="aside_dashboard">
                 <ul class="ul_dashboard">
                     <li class="li_dashboard">
-                        <a href="#" class="a_dashboard">
+                        <a href="{{ path('home') }}" class="a_dashboard">
                            <i class="fa-solid fa-house"></i>
                             <span class="span_dashboard">Dashboard</span>
                         </a>
                     </li>
                     <li class="li_dashboard">
-                        <a href="#" class="a_dashboard">
+                        <a href="{{ path('images') }}" class="a_dashboard">
                             <i class="fa-solid fa-image"></i>
                             <span class="span_dashboard">Images</span>
                         </a>
                     </li>	
                     <li class="li_dashboard">
-                        <a href="#" class="a_dashboard">
+                        <a href="{{ path('analytics') }}" class="a_dashboard">
                             <i class="fa-solid fa-chart-simple"></i>
                             <span class="span_dashboard">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="li_dashboard">
+                        <a href="/logout" class="a_dashboard">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span class="span_dashboard">Me déconnecter</span>
                         </a>
                     </li>
                 </ul>
