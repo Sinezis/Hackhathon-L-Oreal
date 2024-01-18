@@ -98,6 +98,11 @@ class Chat
         return $this->gender;
     }
 
+    public function getGenderLabel(): string
+    {
+        return self::GENDER[$this->gender];
+    }
+
     public function setGender(int $gender): static
     {
         $this->gender = $gender;
@@ -122,6 +127,11 @@ class Chat
         return $this->skinType;
     }
 
+    public function getSkinTypeLabel(): string
+    {
+        return self::SKIN_TYPE[$this->skinType];
+    }
+
     public function setSkinType(?int $skinType): static
     {
         $this->skinType = $skinType;
@@ -132,6 +142,11 @@ class Chat
     public function getSkinColor(): ?int
     {
         return $this->skinColor;
+    }
+
+    public function getSkinColorLabel(): string
+    {
+        return self::SKIN_COLOR[$this->skinColor];
     }
 
     public function setSkinColor(?int $skinColor): static
@@ -146,6 +161,11 @@ class Chat
         return $this->hairType;
     }
 
+    public function getHairTypeLabel(): string
+    {
+        return self::HAIR_TYPE[$this->hairType];
+    }
+
     public function setHairType(int $hairType): static
     {
         $this->hairType = $hairType;
@@ -158,6 +178,11 @@ class Chat
         return $this->hairTexture;
     }
 
+    public function getHairTextureLabel(): string
+    {
+        return self::TEXTURE_LABEL[$this->hairTexture];
+    }
+
     public function setHairTexture(int $hairTexture): static
     {
         $this->hairTexture = $hairTexture;
@@ -168,6 +193,11 @@ class Chat
     public function getHairColor(): ?int
     {
         return $this->hairColor;
+    }
+
+    public function getHairColorLabel(): string
+    {
+        return self::HAIR-COLOR[$this->hairColor];
     }
 
     public function setHairColor(?int $hairColor): static
