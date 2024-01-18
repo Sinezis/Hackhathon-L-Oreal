@@ -1,0 +1,33 @@
+@import url('https://fonts.cdnfonts.com/css/campton');
+
+// Couleurs
+$bg-light-color: #f6f0ee;
+$bg-dark-color: #0A0C14;
+$dark-blue: #0A0C14;
+$mid-blue: #1C1E29;
+$light-blue: #292C40;
+$grey-blue: #4A4F6E;
+$red: #FF003b;
+$white: #FFFFFF;
+// Fonts
+$primary-font: 'Campton', sans-serif;
+/* Textes et titres */
+// Tailles
+$h1-size: 4.5rem;
+$h2-size: 3.75rem;
+$h3-size: 3rem;
+$h4-size: 2.25rem;
+$h5-size: 1.5rem;
+$p-size: 1rem;
+$btn-font-size: 1.25rem;
+//Couleurs
+$h-color: $white;
+$p-color: $white;
+$btn-color: #FF003b;
+$btn-color-hover: lighten($btn-color, 30%);
+$button-color-success: #2DCD7A;
+$button-color-alert: #FFA84C;
+$button-color-danger: #EA5455;
+// Graisses
+// Margins et paddings
+// Modules

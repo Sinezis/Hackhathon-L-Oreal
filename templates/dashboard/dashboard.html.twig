@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="{{ asset('build/images/logo-wild-code-school.svg') }}"/>
+        <title>{% block title %}Dashboard{% endblock %}</title>
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}		
+            {{ importmap('app') }}
+        {% endblock %}
+    </head>
+    <body class="body_dashboard">
+        {% block body %}
+        {# Header #}
+        <header>
+            {# Navbar top #}
+            <nav class="navbar_dashboard">
+                <img src="{{ asset('images/logo-loreal-reveal-yourself-blanc.svg') }}" class="logo_dashboard">
+            </nav>
+            {# Aside #}
+            <div class="aside_dashboard">
+                <ul class="ul_dashboard">
+                    <li class="li_dashboard">
+                        <a href="{{ path('home') }}" class="a_dashboard">
+                           <i class="fa-solid fa-house"></i>
+                            <span class="span_dashboard">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="li_dashboard">
+                        <a href="{{ path('images') }}" class="a_dashboard">
+                            <i class="fa-solid fa-image"></i>
+                            <span class="span_dashboard">Images</span>
+                        </a>
+                    </li>	
+                    <li class="li_dashboard">
+                        <a href="{{ path('analytics') }}" class="a_dashboard">
+                            <i class="fa-solid fa-chart-simple"></i>
+                            <span class="span_dashboard">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="li_dashboard">
+                        <a href="/logout" class="a_dashboard">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span class="span_dashboard">Me déconnecter</span>
+                        </a>
+                    </li>
+                </ul>
+        </header>
+        	<main class="main_dashboard">
+                {% block content %}
+                    {# Insérez votre contenu ici #}
+                {% endblock %}
+            </main>
+        {# Footer #}
+        <footer class="footer_dashboard">
+            <p>Crée avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
+        </footer>
+        {% endblock %}		
+    </body>
+</html>

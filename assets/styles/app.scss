@@ -1,2 +1,10 @@
+// Variables
+@import "variables.scss";
+@import "dashboard/dashboard.scss";
+@import "dashboard/navbar.scss";
+@import "dashboard/home.scss";
+@import "login.scss";
+// Bootstrap
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import '~@fortawesome/fontawesome-free/css/all.css';
