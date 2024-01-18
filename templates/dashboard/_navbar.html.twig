@@ -1,0 +1,93 @@
+<div class="header_toggle">
+	<i class="bi bi-list" id="header-toggle"></i>
+</div>
+
+<div class="l-navbar" id="nav-bar">
+	<nav class="nav">
+		<div>
+			<a href="{#{{ path('app_home') }}#}" class="nav_logo">
+				<i class="bi bi-house"></i>
+				<span class="nav_logo-name">Accueil</span>
+			</a>
+			<div class="nav_list">
+				<a href="{#{{ path('offer_public_list') }}#}" class="nav_link active">
+					<i class="bi bi-person-workspace"></i>
+					<span class="nav_name">Offres d'emploi</span>
+				</a>
+				<a href="{#{{ path('favorites_list') }}#}" class="nav_link">
+					<i class='bi bi-heart-fill nav_icon'></i>
+					<span class="nav_name">Mes Favoris</span>
+				</a>
+				{% if is_granted('ROLE_USER') %}
+					<a class="nav_link" href="{#{{ path('app_logout') }}#}">
+						<i class="bi bi-box-arrow-right"></i>
+						<span class="nav_name">Déconnexion</span>
+					</a>
+				{% else %}
+
+					<a class="nav_link" href="{#{{ path('app_login') }}#}">
+						<i class='bi bi-person-fill'></i>
+						<span class="nav_name">Connexion</span>
+					</a>
+
+					<a class="nav_link" href="{#{{ path('app_register') }}#}">
+						<i class='bi bi-file-person-fill'></i>
+						<span class="nav_name">Inscription</span>
+					</a>
+				{% endif %}
+				<a href="{#{{ path('user_dashboard') }}#}" class="nav_link">
+					<i class="bi bi-card-heading"></i>
+					<span class="nav_name">Mon dashboard</span>
+				</a>
+				{% if is_granted('ROLE_COLLABORATEUR') %}
+					<a href="{#{{ path('admin_dashboard') }}#}" class="nav_link">
+						<i class="bi bi-star-fill"></i>
+						<span class="nav_name">Dashboard Administrateur</span>
+					</a>
+				{% endif %}
+			</div>
+		</div>
+	</nav>
+</div>
+<div>
+	<ul class="nav justify-content-center">
+		<li class="nav-item">
+			<img src="{{ asset('build/images/externaticLogo.png') }}" style="border-radius:0.5rem" height="30rem" alt="logo">
+		</li>
+	</ul>
+</div>
+<div class="navbar">
+	<div class="row align-items-center justify-content-end">
+		<div class="col-auto">
+			{% if is_granted('ROLE_USER') %}
+				{% if app.user.notificationWaiting %}
+					<div>
+						<a class="nav-link navbar-brand externatic-brand" href="{{ path('offer_user_offer', {id: app.user.id}) }}">
+							<i class="bi bi-bell-fill"></i>
+						</a>
+					</div>
+				{% else %}
+					<div>
+						<a class="nav-link navbar-brand externatic-brand" href="{{ path('offer_user_offer', {id: app.user.id}) }}">
+							<i class="bi bi-bell-slash-fill"></i>
+						</a>
+					</div>
+				{% endif %}
+			{% endif %}
+		</div>
+		<div class="col-auto">
+			{% if is_granted('ROLE_USER') %}
+				<a class="nav-link navbar-brand externatic-brand" href="{{ path('app_logout') }}">
+					<i class="bi bi-box-arrow-right"></i>
+					Déconnexion</a>
+			{% else %}
+				<a class="nav-link navbar-brand externatic-brand" href="{{ path('app_login') }}">
+					<i class="bi bi-person-fill"></i>
+					Connexion</a>
+				<a class="nav-link navbar-brand externatic-brand" href="{{ path('app_register') }}">
+					<i class="bi bi-file-person-fill"></i>
+					Inscription</a>
+			{% endif %}
+		</div>
+	</div>
+</div>

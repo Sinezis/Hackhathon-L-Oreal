@@ -17,7 +17,8 @@
     </head>
     <body>
         {% block body %}
-            <h1>Hello je suis un dashboard !</h1>
+        {% include 'dashboard/_navbar.html.twig' %}
+            <h2 class="title_dashboard"><i class="fa-solid fa-house"></i>Hello je suis un dashboard !</h2>
         {% endblock %}
     </body>
 </html>
