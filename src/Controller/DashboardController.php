@@ -16,7 +16,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/home', name: 'home')]
+    #[Route('/home', name: 'dashboard_home')]
     public function home(): Response
     {
         return $this->render('dashboard/home.html.twig', [
