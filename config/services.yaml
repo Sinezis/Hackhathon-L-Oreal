@@ -7,6 +7,8 @@ parameters:
     openai_api_key: '%env(OPENAI_APIKEY)'
 
 services:
+    App\DataFixtures\:
+        resource: '../src/DataFixtures'
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.

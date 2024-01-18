@@ -4,11 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "0ae25951d5a51a21441ad08aec5180c3",
-=======
+
     "content-hash": "7028eb32356e617427c26e801a077044",
->>>>>>> createBDD
+    
     "packages": [
         {
             "name": "composer/semver",
