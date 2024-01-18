@@ -14,64 +14,30 @@ class Product
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $picture = null;
+    private ?int $productId = null;
 
     #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
+    private ?string $productName = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $brand = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $link = null;
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $productCategory = null;
 
-    #[ORM\ManyToOne(inversedBy: 'product')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Category $category = null;
-
-    public function getId(): ?int
+    public function getProductId(): ?int
     {
-        return $this->id;
+        return $this->productId;
     }
 
-    public function getName(): ?string
+    public function getProductName(): ?string
     {
-        return $this->name;
+        return $this->productName;
     }
 
-    public function setName(string $name): static
+    public function setProductName(string $productName): static
     {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(string $picture): static
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): static
-    {
-        $this->description = $description;
+        $this->productName = $productName;
 
         return $this;
     }
@@ -88,26 +54,14 @@ class Product
         return $this;
     }
 
-    public function getLink(): ?string
+    public function getProductCategory(): ?string
     {
-        return $this->link;
+        return $this->productCategory;
     }
 
-    public function setLink(string $link): static
+    public function setProductCategory(string $productCategory): static
     {
-        $this->link = $link;
-
-        return $this;
-    }
-
-    public function getCategory(): ?Category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?Category $category): static
-    {
-        $this->category = $category;
+        $this->productCategory = $productCategory;
 
         return $this;
     }
