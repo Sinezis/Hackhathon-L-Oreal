@@ -20,7 +20,7 @@ class DashboardController extends AbstractController
         ]);
     }
 
-    #[Route('/home', name: 'home')]
+    #[Route('/home', name: 'dashboard_home')]
     public function home(): Response
     {
         return $this->render('dashboard/home.html.twig', [
@@ -49,6 +49,24 @@ class DashboardController extends AbstractController
         }
 
         return $this->render('dashboard/images.html.twig', ['form' => $form]);
+    }
+
+    #[Route('/imageName/{id}', name:'app_imageName')]
+    public function generateName(Picture $picture): Response
+    {
+        $product = $picture->getProduct();
+    
+        $productName = str_replace(' ', '-', $product->getProductName());
+        $productCategory = str_replace(' ', '-', $product->getProductCategory());
+        $productBrand = str_replace(' ', '-', $product->getBrand());
+        $pictureExtension = $picture->getExtension();
+        $generatedName = strtolower($productName . '-' . $productCategory . '-' . $productBrand . $pictureExtension);
+
+        //To change directly the name of the picture, but not working in this state
+        //as VichUploader has its own Naming pattern
+        //$picture->setName($generatedName);
+
+        return $this->render('dashboard/generate_name.html.twig', ['generatedName' => $generatedName, 'picture' => $picture]);
     }
 
     #[Route('/analytics', name: 'analytics')]

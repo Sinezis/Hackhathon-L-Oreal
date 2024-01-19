@@ -38,7 +38,7 @@
                         <a href="{{ path('app_forgot_password_request') }}" class="reinitialiser-mot-de-passe_login">Réinitialiser le mot de passe</a>
                     </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-                        <input type="hidden" name="_target_path" value="{{ path('app_login')}}">
+                        <input type="hidden" name="_target_path" value="{{ path('dashboard_home')}}">
 
                         <button type="submit" class="btn-primary">Se connecter</button>
                     </form>
