@@ -38,7 +38,8 @@ class DefaultController extends AbstractController
         return $this->render('seo/index.html.twig', ['form' => $form]);
     }*/
 
-    #[Route('/seoModule/imageName/{id}', name: 'app_imageName')]
+    // Moved method to DashboardController
+    /*#[Route('/seoModule/imageName/{id}', name:'app_imageName')]
     public function generateName(Picture $picture): Response
     {
         $product = $picture->getProduct();
@@ -52,5 +53,5 @@ class DefaultController extends AbstractController
         $picture->setName($generatedName);
 
         return $this->render('seo/generate_name.html.twig', ['generatedName' => $generatedName, 'picture' => $picture]);
-    }
+    }*/
 }

@@ -1,13 +1,15 @@
-{#  {% extends 'base.html.twig' %}
+{% extends 'dashboard/dashboard.html.twig' %}
 
-{% block body %}
+{% block content %}
 
 <div class="container mt-5">
+<img src="/uploads/images/products/{{ picture.name }}" width="200">
 <input type="text" value="{{ generatedName }}" id="copy-clipboard-name">
+
 <button onclick="myFunction()"><i class="fa-solid fa-copy"></i></button>
 </div>
 
-<a href="{{ path('app_seo') }}"> Retour au module</a>
+<a href="{{ path('images') }}"> Retour au module</a>
 
 <script>
 function myFunction() {
@@ -25,5 +27,4 @@ function myFunction() {
   alert("Copied the text: " + copyText.value);
 }
 </script>
-{% endblock %}  #}
-
+{% endblock %}
