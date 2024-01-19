@@ -1,0 +1,30 @@
+{% extends 'dashboard/dashboard.html.twig' %}
+
+{% block content %}
+
+<div class="div_generateur">
+  <img src="/uploads/images/products/{{ picture.name }}" class="img_generateur">
+<div class="resultat_generateur">
+  <input type="text" value="{{ generatedName }}" id="copy-clipboard-name" class="input_images">
+  <button onclick="myFunction()"><i class="fa-solid fa-copy"></i></button>
+</div>
+  <a href="{{ path('images') }}" class="btn-primary_generateur"> Retour au module</a>
+</div>
+
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("copy-clipboard-name");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+   // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+
+  // Alert the copied text
+  alert("Copied the text: " + copyText.value);
+}
+</script>
+{% endblock %}

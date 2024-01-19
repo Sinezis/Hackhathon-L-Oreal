@@ -18,7 +18,8 @@ class DefaultController extends AbstractController
         return $this->render('index.html.twig');
     }
 
-    #[Route('/seoModule', name: 'app_seo')]
+    // Moved method to DashboardController
+    /*#[Route('/seoModule', name: 'app_seo')]
     public function seoForm(Request $request, EntityManagerInterface $entityManager): Response
     {
         $picture = new Picture();
@@ -26,7 +27,7 @@ class DefaultController extends AbstractController
         $form = $this->createForm(ImageUploadType::class, $picture);
         $form->handleRequest($request);
 
-        
+
         if ($form->isSubmitted()) {
             $entityManager->persist($picture);
             $entityManager->flush();
@@ -35,13 +36,14 @@ class DefaultController extends AbstractController
         }
 
         return $this->render('seo/index.html.twig', ['form' => $form]);
-    }
+    }*/
 
-    #[Route('/seoModule/imageName/{id}', name:'app_imageName')]
+    // Moved method to DashboardController
+    /*#[Route('/seoModule/imageName/{id}', name:'app_imageName')]
     public function generateName(Picture $picture): Response
     {
         $product = $picture->getProduct();
-    
+
         $productName = str_replace(' ', '-', $product->getProductName());
         $productCategory = str_replace(' ', '-', $product->getProductCategory());
         $productBrand = str_replace(' ', '-', $product->getBrand());
@@ -51,5 +53,5 @@ class DefaultController extends AbstractController
         $picture->setName($generatedName);
 
         return $this->render('seo/generate_name.html.twig', ['generatedName' => $generatedName, 'picture' => $picture]);
-    }
+    }*/
 }

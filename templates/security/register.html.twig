@@ -1,34 +1,61 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="{{ asset('build/images/logo-wild-code-school.svg') }}"/>
+        <title>{% block title %}Nouveau compte{% endblock %}</title>
 
-{% block title %}Nouveau compte{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
 
+        {% block javascripts %}		
+            {{ importmap('app') }}
+        {% endblock %}
+    </head>
+<body class="body_login">
 {% block body %}
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
+    <header>
+            {# Navbar top #}
+            <nav class="navbar_login">
+                <img src="{{ asset('images/logo-loreal-reveal-yourself-blanc.svg') }}" class="logo_dashboard">
+            </nav>
+    </header>
+    <h1 class="title_login mb-4">Création de votre compte </h1>
 
-    <h1 class="mx-sm-4">Création de votre compte </h1>
+    <section class="section_login">
+        <div class="div_login">
+        {{ form_errors(registrationForm) }}
+        {{ form_start(registrationForm) }}
+        <div class="mb-3">
+            {{ form_row(registrationForm.firstname, {'attr': {'class': 'input_login mb-3', 'placeholder': 'Firstname'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(registrationForm.lastname, {'attr': {'class': 'input_login mb-3', 'placeholder': 'Lastname'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(registrationForm.email, {'attr': {'class': 'input_login mb-3', 'placeholder': 'Email'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'input_login mb-3', 'placeholder': 'Password'}}) }}
+        </div>
+        <div class="mb-3">
+            {{ form_row(registrationForm.agreeTerms, {'label_attr': {'class': 'form-check-label'}, 'attr': {'class': 'form-check-input'}}) }}
+            <label class="form-check-label" for="{{ registrationForm.agreeTerms.vars.id }}">
+        </div>
 
-    {{ form_errors(registrationForm) }}
-    {{ form_start(registrationForm) }}
-    <div class="form-group mx-sm-4 mb-2">
-        {{ form_row(registrationForm.firstname, {'attr': {'class': 'form-control', 'placeholder': 'Firstname'}}) }}
-    </div>
-    <div class="form-group mx-sm-4 mb-2">
-        {{ form_row(registrationForm.lastname, {'attr': {'class': 'form-control', 'placeholder': 'Lastname'}}) }}
-    </div>
-    <div class="form-group mx-sm-4 mb-2">
-        {{ form_row(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
-    </div>
-    <div class="form-group mx-sm-4 mb-2">
-        {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
-    </div>
-    <div class="form-check mx-sm-4">
-        {{ form_row(registrationForm.agreeTerms, {'label_attr': {'class': 'form-check-label'}, 'attr': {'class': 'form-check-input'}}) }}
-        <label class="form-check-label" for="{{ registrationForm.agreeTerms.vars.id }}">
-    </div>
+        <button type="submit" class="btn-primary">Register</button>
+        {{ form_end(registrationForm) }}
+        </div>
+    </section>
+     <footer class="footer_login">
+            <p>Crée avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
+    </footer>
 
-    <button type="submit" class="btn btn-primary my-btn  mx-sm-4 mb-2">Register</button>
-    {{ form_end(registrationForm) }}
-    
 {% endblock %}
+</body>
+</html>

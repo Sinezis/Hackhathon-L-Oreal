@@ -1,12 +1,32 @@
 {% extends 'dashboard/dashboard.html.twig' %}
 
 {% block content %}
- <div class="row">
-    <div class="col">
-      1 of 3
+<section class="section_images">
+    <h2 class="title_login mb-4">Référencement d'images</h2>
+    {{ form_start(form) }}
+    <div class="row">
+        {# Colonne de gauche #}
+        <div class="col">
+            <h5 class="label_images mb-2">Nom de la catégorie</h5>
+            {{ form_row(form.product, {'attr': {'class': 'form-category_images'}}) }}
+            <h5 class="label_images mb-2">Télécharger votre image ici</h5>
+            {{ form_row(form.productFile, {'attr': {'class': 'form-file_images'}}) }}
+            <h5 class="label_images mb-2">Rentrez votre description</h5>
+            {{ form_row(form.metaDescription, {'attr': {'class': 'form-meta_images'}}) }}
+        </div>
+        {# Colonne de droite #}
+        <div class="col">
+            <h5 class="label_images mb-2">Hauteur de l'image</h5>
+            {{ form_row(form.height, {'attr': {'class': 'form-height_images'}}) }}
+            <h5 class="label_images mb-2">Largeur de l'image</h5>
+            {{ form_row(form.width, {'attr': {'class': 'form-width_images'}}) }}
+            <h5 class="label_images mb-2">Choisissez l'extension de l'image</h5>
+            {{ form_row(form.extension, {'attr': {'class': 'form-extension_images'}}) }}
+        </div>
     </div>
-    <div class="col-md-auto">
-      Variable width content
-  </div>
-</div>
+    <div class="div-submit_images">
+        <button class="btn-primary_images" type="submit">Nommer mon image</button>
+    </div>
+    {{ form_end(form) }}
+</section>
 {% endblock %}

@@ -1,39 +1,180 @@
-{{ form_start(form) }}
-<form method="post" class="form-style">
-	<div class="row">
-		{% set columns = 2 %}
-		{% set colSize = 12 / columns %}
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.gender, 'Genre') }}
-			{{ form_widget(form.gender) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.age, 'Age') }}
-			{{ form_widget(form.age) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.skinType, 'Type de peau') }}
-			{{ form_widget(form.skinType) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.skinColor, 'Couleur de peau') }}
-			{{ form_widget(form.skinColor) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.hairType, 'Type de cheveux') }}
-			{{ form_widget(form.hairType) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.hairTexture, 'Texture de cheveux') }}
-			{{ form_widget(form.hairTexture) }}
-		</div>
-		<div class="col-md-{{ colSize }} text-md-end col-form">
-			{{ form_label(form.hairColor, 'Couleur de cheveux') }}
-			{{ form_widget(form.hairColor) }}
-		</div>
+<div class="container-fluid text-center" style="margin-top:2rem">
+	<h6 class="h6-form">Reveal Yourself aide nos clients à trouver</br>
+	les produits les plus adaptés selon leurs</br>
+	critères du moment</h6>
+	<h3 class="h3-form">Et si on apprenait à se connaître ?</h3>
+</div>
 
-		{{ form_rest(form) }}
-		<button class="btn btn-lg btn-primary submit-form btn-criteria" style="margin-top:1rem">{{ button_label|default('Enregistrer') }}</button>
+{{ form_start(form) }}
+<div class="container form-container">
+
+	<div height="800px" class="stepper" id="stepper">
+		<div class="steps-container">
+			<div class="steps">
+				<div class="step" icon="fa-solid fa-user" id="1">
+					<div class="step-title">
+						<span class="step-number">01</span>
+						<div class="step-text">Informations générales</div>
+					</div>
+				</div>
+				<div class="step" icon="fa fa-info-circle" id="2">
+					<div class="step-title">
+						<span class="step-number">02</span>
+						<div class="step-text">Ma peau</div>
+					</div>
+				</div>
+				<div class="step" icon="fa fa-book-reader" id="3">
+					<div class="step-title">
+						<span class="step-number">03</span>
+						<div class="step-text">Mes cheveux</div>
+					</div>
+				</div>
+				<div class="step" icon="fa fa-check" id="4">
+					<div class="step-title">
+						<span class="step-number">04</span>
+						<div class="step-text">Envoi des résultats</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="stepper-content-container">
+			<div class="stepper-content fade-in" stepper-label="1">
+				<div class="card">
+					<div class="my-0 mx-auto">
+						<div class="p-10 d-flex flex-col">
+							<div class="text-center pt-20 pe-0 pb-10 ps-0 fw-bold">
+								Informations générales
+							</div>
+							<div class="p-10 d-flex flex-col w-100">
+								<label class="text-muted mb-2">
+									{{ form_label(form.gender, 'Je suis') }}
+								</label>
+								<div class="cdb-form">
+									{{ form_widget(form.gender) }}
+								</div>
+								<label class="text-muted mb-2">
+									{{ form_label(form.age, 'Quel est mon âge ?') }}
+								</label>
+								<div class="cdb-form">
+									{{ form_widget(form.age) }}
+								</div>
+								<div class="d-flex w-100 justify-content-end">
+									<button class="btn-next_form mt-5 mb-3" onclick="navigateToStep('2')">
+										Suivant
+									</button>
+	                      		</div>
+                			</div>
+            			</div>
+        			</div>
+      			</div>
+    		</div>
+			<div class="stepper-content fade-in" stepper-label="2">
+				<div class="card">
+					<div class="my-0 mx-auto">
+						<div class="p-10 d-flex flex-col">
+							<div class="text-center pt-20 pe-0 pb-10 ps-0 fw-bold">
+								Ma peau
+							</div>
+							<div class="p-10 d-flex flex-col w-100">
+								<label class="text-muted mb-2">
+									{{ form_label(form.skinType, 'Quel est mon type de peau ?') }}
+								</label>
+								<div class="cdb-form">
+									{{ form_widget(form.skinType) }}
+								</div>
+								<label class="text-muted mb-2">
+									{{ form_label(form.skinColor, 'Quelle est la couleur de ma peau ?') }}
+								</label>
+								<div class="cdb-form">
+									{{ form_widget(form.skinColor) }}
+								</div>
+								<div class="d-flex w-100 justify-content-end">
+									<button class="btn-previous_form mt-5 mb-3" onclick="navigateToStep('1')">
+										Précédent
+									</button>
+									<button class="btn-next_form mt-5 mb-3" onclick="navigateToStep('3')">
+										Suivant
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="stepper-content fade-in" stepper-label="3">
+				<div class="card">
+					<div class="my-0 mx-auto">
+						<div class="p-10 d-flex flex-col">
+							<div class="text-center pt-20 pe-0 pb-10 ps-0 fw-bold">
+								Mes cheveux
+							</div>
+							<div class="p-10 d-flex flex-col w-100">
+								<label class="text-muted mb-2">
+									{{ form_label(form.hairType, 'Quel est mon type de cheveux ?') }}
+								</label>
+								<div class="cdb-form">
+									{{ form_widget(form.hairType) }}
+								</div>
+								<label class="text-muted mb-2">
+									{{ form_label(form.hairTexture, 'Quelle est la texture de mes cheveux ?') }}
+								</label>
+								<div class="cdb-form">
+									{{ form_widget(form.hairTexture) }}
+								</div>
+								<label class="text-muted mb-2">
+									{{ form_label(form.hairColor, 'Quelle est la couleur de mes cheveux ?') }}
+								</label>
+								<div class="cdb-form">
+									{{ form_widget(form.hairColor) }}
+								</div>
+								<div class="d-flex w-100 justify-content-end">
+									<button class="btn-previous_form mt-5 mb-3" onclick="navigateToStep('2')">
+										Précédent
+									</button>
+									<button class="btn-next_form mt-5 mb-3" onclick="navigateToStep('4')">
+										Suivant
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="stepper-content fade-in" stepper-label="4">
+				<div class="card">
+					<div class="my-0 mx-auto">
+						<div class="p-10 d-flex flex-col">
+							<div class="text-center pt-20 pe-0 pb-10 ps-0 fw-bold">
+								Envoi des résultats
+							</div>
+							<div class="p-10 d-flex flex-col w-100">
+								<div class="text-center" style="textAlign:center">
+									Félicitations le formulaire est complet.
+									<span style="display:block" role="img" aria-label="image">🎉</span>
+								</div>
+								<div class="d-flex w-100 justify-content-end">
+									<button class="btn-previous_form mt-5 mb-3" onclick="navigateToStep('3')">
+										Précédent
+									</button>
+									<button class="btn-next_form mt-5 mb-3" style="margin-top:1rem">{{ button_label|default('Enregistrer') }}</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</form>
+</div>
 {{ form_end(form) }}
+
+<script>
+    const stepper = document.querySelector('#stepper');
+    const stepper2 = new CDB.Stepper(stepper);
+
+    function navigateToStep(step) {
+        // Logique de navigation vers l'étape spécifiée
+        console.log('Navigating to step ' + step);
+        stepper2.navigate(step);
+    }
+</script>

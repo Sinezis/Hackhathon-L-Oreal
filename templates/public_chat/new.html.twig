@@ -4,7 +4,26 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="h1-form">Mes produits personnalisés</h1>
-	{{ include('public_chat/_form.html.twig') }}
-	<a href="#">Retour à l'accueil</a>
+ 		<header>
+            {# Navbar top #}
+            <nav class="navbar_login">
+                <img src="{{ asset('images/logo-loreal-reveal-yourself-blanc.svg') }}" class="logo_dashboard">
+            </nav>
+        </header>
+	<main class="mb-5">
+		<div class="section-hero"
+			style="background-image:url('{{ asset('images/vecteezy_content-jeune-femme-repos-sur-a-la-mode-mere-s-epaule-contre_27183681.jpg')}}')" alt="Portraits de femmes">  
+		</div>
+		<div class="container"> 
+			<div>
+				<span class="h2-form">Reveal</span>
+				<span class="h1-form">Yourself</span>
+			</div>
+			<h4 class="mt-3 h4-form">Laissez nous vous aider à vous révéler</h4>
+		</div>
+		{{ include('public_chat/_form.html.twig') }}
+	</main>
+<footer class="footer_form">
+    <p>Créé avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
+</footer>
 {% endblock %}
