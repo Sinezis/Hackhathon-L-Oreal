@@ -18,6 +18,8 @@
 }
 
 .widget-images_dashboard {
+    background-position: center;
+    background-size: cover;
     background-color: $red;
     border-radius: 25px;
     width: 58%;
@@ -28,7 +30,7 @@
     align-items: flex-end;
 
     &:hover {
-        opacity: 0.4;
+        opacity: 0.6;
         transition-duration: 500ms;
     }
 }
@@ -47,6 +49,7 @@
     color: $white;
     font-weight: 400;
     text-align: left;
+    margin-left: 2vw;
 }
 
 .widget-analytics_dashboard {
@@ -111,4 +114,8 @@
         opacity: 0.4;
         transition-duration: 500ms;
     }
+}
+
+.liens_dashboard {
+    text-decoration: none;
 }
