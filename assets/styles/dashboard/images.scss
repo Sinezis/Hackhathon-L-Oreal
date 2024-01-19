@@ -1,0 +1,174 @@
+.section_images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+// Forms 
+
+label {
+    display: none;
+}
+
+.form-category_images {
+    background-color: $grey-blue;
+    color: $white;
+    width: 100%;
+    height: auto;
+    font-family: $primary-font;
+    font-weight: 400;
+    padding: 3%;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+
+    &:focus {
+        border: 1px solid $white;
+    }
+
+    &::placeholder {
+        color: $white;
+        opacity: 1;
+    }
+}
+
+.form-file_images {
+    background-color: $grey-blue;
+    color: $white;
+    width: 100%;
+    height: auto;
+    font-family: $primary-font;
+    font-weight: 400;
+    padding: 3%;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+
+    &:focus {
+        border: 1px solid $white;
+    }
+
+    &::placeholder {
+        color: $white;
+        opacity: 1;
+    }
+}
+
+.form-meta_images {
+    background-color: $grey-blue;
+    color: $white;
+    width: 100%;
+    height: auto;
+    font-family: $primary-font;
+    font-weight: 400;
+    padding: 3%;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+
+    &:focus {
+        border: 1px solid $white;
+    }
+
+    &::placeholder {
+        color: $white;
+        opacity: 1;
+    }
+}
+
+.form-height_images {
+    background-color: $grey-blue;
+    color: $white;
+    width: 100%;
+    height: auto;
+    font-family: $primary-font;
+    font-weight: 400;
+    padding: 3%;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+
+    &:focus {
+        border: 1px solid $white;
+    }
+
+    &::placeholder {
+        color: $white;
+        opacity: 1;
+    }
+}
+
+.form-width_images {
+    background-color: $grey-blue;
+    color: $white;
+    width: 100%;
+    height: auto;
+    font-family: $primary-font;
+    font-weight: 400;
+    padding: 3%;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+
+    &:focus {
+        border: 1px solid $white;
+    }
+
+    &::placeholder {
+        color: $white;
+        opacity: 1;
+    }
+}
+
+.form-extension_images {
+    background-color: $grey-blue;
+    color: $white;
+    width: 50%;
+    height: auto;
+    font-family: $primary-font;
+    font-weight: 400;
+    padding: 3%;
+    border: 0px;
+    border-radius: 10px;
+    margin-bottom: 2vh;
+
+    &:focus {
+        border: 1px solid $white;
+    }
+
+    &::placeholder {
+        color: $white;
+        opacity: 1;
+    }
+}
+
+.div-submit_images {
+    width: 50%;
+}
+
+.btn-primary_images {
+    font-family: $primary-font;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: $btn-color;
+    border: 1px solid transparent;
+    border-radius: 0;
+    color: $white;
+    letter-spacing: 1.2px;
+    width: 50%;
+    height: auto;
+    padding: 2% 4% 2% 4%;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    justify-content: right;
+
+    &:hover {
+        opacity: 0.7;
+        transition-duration: 250ms;
+    }
+}
