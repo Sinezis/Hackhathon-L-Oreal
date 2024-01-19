@@ -1,5 +1,188 @@
 {% extends 'dashboard/dashboard.html.twig' %}
 
-{% block content %}
+{% block javascripts %}
+{# Scripts JS #}
+<script>
+var chart    = document.getElementById('chart').getContext('2d'),
+    gradient = chart.createLinearGradient(0, 0, 0, 450);
 
+gradient.addColorStop(0, 'rgba(0, 199, 214, 0.32)');
+gradient.addColorStop(0.3, 'rgba(0, 199, 214, 0.1)');
+gradient.addColorStop(1, 'rgba(0, 199, 214, 0)');
+
+
+var data  = {
+    labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July','August','September','October', 'November','December' ],
+    datasets: [{
+			label: 'Applications',
+			backgroundColor: gradient,
+			pointBackgroundColor: '#00c7d6',
+			borderWidth: 1,
+			borderColor: '#0e1a2f',
+			data: [60, 45, 80, 30, 35, 55,25,80,40,50,80,50]
+    }]
+};
+
+var options = {
+	responsive: true,
+	maintainAspectRatio: true,
+	animation: {
+		easing: 'easeInOutQuad',
+		duration: 520
+	},
+	scales: {
+		yAxes: [{
+      ticks: {
+        fontColor: '#5e6a81'
+      },
+			gridLines: {
+				color: 'rgba(200, 200, 200, 0.08)',
+				lineWidth: 1
+			}
+		}],
+    xAxes:[{
+      ticks: {
+        fontColor: '#5e6a81'
+      }
+    }]
+	},
+	elements: {
+		line: {
+			tension: 0.4
+		}
+	},
+	legend: {
+		display: false
+	},
+	point: {
+		backgroundColor: '#00c7d6'
+	},
+	tooltips: {
+		titleFontFamily: 'Poppins',
+		backgroundColor: 'rgba(0,0,0,0.4)',
+		titleFontColor: 'white',
+		caretSize: 5,
+		cornerRadius: 2,
+		xPadding: 10,
+		yPadding: 10
+	}
+};
+
+var chartInstance = new Chart(chart, {
+    type: 'line',
+    data: data,
+		options: options
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="app-container">
+  <div class="app-main">
+    <div class="main-header-line">
+      <h1 class="title_analytics mb-4">Analytics</h1>
+      </div>
+    <div class="chart-row three">
+      <div class="chart-container-wrapper">
+        <div class="chart-container">
+          <div class="chart-info">
+            <h2 class="chart-h2">Mot-clés le plus apparu</h2>
+            <span class="chart-span">Écologie</span>
+          </div>
+          <div class="chart-svg">
+            <svg viewBox="0 0 36 36" class="circular-chart pink">
+      <path class="circle-bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+      <path class="circle" stroke-dasharray="30, 100" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+      <text x="18" y="20.35" class="percentage">30%</text>
+    </svg>
+          </div>
+        </div>
+      </div>
+      <div class="chart-container-wrapper">
+        <div class="chart-container">
+          <div class="chart-info">
+            <h2 class="chart-h2">Taux de conversion</h2>
+            <span class="chart-span">20.5k clics depuis 2 mois</span>
+          </div>
+           <div class="chart-svg">
+            <svg viewBox="0 0 36 36" class="circular-chart orange">
+      <path class="circle-bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+      <path class="circle" stroke-dasharray="90, 100" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+      <text x="18" y="20.35" class="percentage">90%</text>
+    </svg>
+          </div>
+        </div>
+      </div>
+      <div class="chart-container-wrapper">
+        <div class="chart-container">
+          <div class="chart-info">
+            <h2 class="chart-h2">Temps de remplissage moyen du form</h2>
+            <span class="chart-span">2 min 30</span>
+          </div>
+          <div class="chart-svg">
+            <svg viewBox="0 0 36 36" class="circular-chart blue"></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-row two">
+      <div class="chart-container-wrapper big">
+        <div class="chart-container">
+          <div class="chart-container-header">
+            <h2>La synthése des résultats</h2>
+            <span>30 derniers jours</span>
+          </div>
+          <div class="line-chart">
+            <canvas id="chart"></canvas>
+          </div>
+          <div class="chart-data-details">
+            <div class="chart-details-header"></div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-container-wrapper small">
+        <div class="chart-container">
+          <div class="chart-container-header">
+            <h2>Catégories les plus recherchées</h2>
+            <span href="#">Ce mois-ci</span>
+          </div>
+          <div class="acquisitions-bar">
+           <span class="bar-progress rejected" style="width:8%;"></span>
+            <span class="bar-progress on-hold" style="width:10%;"></span>
+            <span class="bar-progress shortlisted" style="width:18%;"></span>
+            <span class="bar-progress applications" style="width:64%;"></span>
+          </div>
+          <div class="progress-bar-info">
+            <span class="progress-color applications"></span>
+            <span class="progress-type">Cheveux</span>
+            <span class="progress-amount">64%</span>
+          </div>
+          <div class="progress-bar-info">
+            <span class="progress-color shortlisted"></span>
+            <span class="progress-type">Couleurs</span>
+            <span class="progress-amount">18%</span>
+          </div>
+          <div class="progress-bar-info">
+            <span class="progress-color on-hold"></span>
+            <span class="progress-type">Skincare</span>
+            <span class="progress-amount">10%</span>
+          </div>
+          <div class="progress-bar-info">
+            <span class="progress-color rejected"></span>
+            <span class="progress-type">Masques</span>
+            <span class="progress-amount">8%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
