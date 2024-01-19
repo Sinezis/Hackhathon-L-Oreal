@@ -7,9 +7,9 @@
 
 // start the Stimulus application
 import './styles/app.scss';
+import './analytics';
 
 // Bootstrap
-
 import './bootstrap';
 require('bootstrap');
 
