@@ -5,6 +5,36 @@ $typo-color:#f6f0ee;
 $white:#ffffff;
 $input: #4A4F6E;
 
+.navbar_pages,
+.footer_pages {
+    background-color: $mid-blue;
+    display: inline-flex;
+    text-align: center;
+    align-items: center;
+    width: 100vw;
+    right: 0;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    z-index: 999;
+}
+.navbar_pages {
+    top: 0;
+    justify-content: center;
+    height: 10vh;
+    position: fixed;
+}
+
+.logo_pages{
+    max-width: 10vw;
+}
+// Footer
+.footer_pages {
+    font-family: $primary-font;
+    color: $white;
+    bottom: 0;
+    justify-content: left;
+    height: 7vh;
+}
 main {
     background-color: $background-color;
     color: $white;
@@ -44,7 +74,7 @@ div.form-container {
     display: block;
     background-size: cover;
     background-position: center;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
 }
 .card > label {
     margin-bottom: 1rem;
