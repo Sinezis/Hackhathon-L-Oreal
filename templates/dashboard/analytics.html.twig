@@ -1,5 +1,89 @@
 {% extends 'dashboard/dashboard.html.twig' %}
 
+{% block javascript %}
+    <script src="{{ asset('analytics.js') }}"></script>
+{% endblock %}
+
 {% block content %}
+
+<h1>You dig SVG animated charts, dawg?</h1>
+<div id="doughnutChart" class="chart"></div>
+
+<h3>Catégorie les plus recherchées</h3>
+
+<div class="box-piesite">
+    <ul>
+        <li class="design">
+            <div class="piesite" id="pie_0" data-pie="82"></div>
+        </li>
+        <li class="usability">
+            <div class="piesite" id="pie_2" data-pie="55"></div>
+        </li>
+        <li class="creativity">
+            <div class="piesite" id="pie_1" data-pie="33"></div>
+        </li>
+    </ul>
+</div>
+
+<p>Bacon ipsum do lor amet porchetta jowl jerky short loin, tri-tip flank c ow. 
+Strip steak meat ball picanha t-bone pork loin filet mignon, pancetta jerky kielba 
+sa sirloin ball t ip hamburger turkey pork belly ham hock. Chicken swine tail s pa 
+re ribs,pork loin tongue picanha strip steak ribeye pancetta bresaola landjaeger 
+flank ham shank. Picanha t-bone meatball, corned beef tail tri-tip flank capicola 
+alcatra spare ribs. Flank tail pork loin pork belly sirloin tri-tip..</p>
+<!-- <p>&nbsp;</p>  -->
+ 
+
+<h1>Classement des mots-clés</h1>
+<p>&nbsp;</p> 
+
+<div class="chartBarsWrap">
+    <div class="chartBars chartBars1">
+        <ul class="numbers">
+            <li><span>100%</span></li>
+            <li><span>80%</span></li>
+            <li><span>60%</span></li>
+            <li><span>40%</span></li>
+            <li><span>20%</span></li>
+            <li><span>0%</span></li>
+        </ul>
+        <ul class="bars">
+            <li>
+                <span class="tooltip"> 
+                <span class="tooltipContent">Catégorie en baisse</span>
+                <div data-percentage="52" class="bar greenBar trigger"></div>
+                </span>
+                <b>Alpha</b>
+            </li>
+            <li>
+                <span class="tooltip">  
+                <span class="tooltipContent">Catégorie en maintien</span>
+                <div data-percentage="83" class="bar blueBar trigger"></div>
+                </span> 
+                <b>Beta</b> 
+            </li>
+            <li>
+                <span class="tooltip"> 
+                <span class="tooltipContent">En forte progression</span>
+                <div data-percentage="94" class="bar orangeBar trigger"></div>
+                </span>
+                <b>Gamma</b>
+            </li>
+            <li>
+                <span class="tooltip"> 
+                <span class="tooltipContent">Légère progression</span> 
+                <div data-percentage="64" class="bar purpleBar trigger"></div>    
+                </span>
+                <b>Delta</b>   
+            </li>
+        </ul>
+    </div>
+</div>
+
+<p>Bacon ipsum do lor amet porchetta jowl jerky short loin, tri-tip flank c ow. Strip steak meat 
+ball picanha t-bone pork loin filet mignon, pancetta jerky kielba sa sirloin ball t ip hamburger 
+turkey pork belly ham hock. Chicken swine tail s pa re ribs,pork loin tongue picanha strip steak 
+ribeye pancetta bresaola landjaeger flank ham shank. Picanha t-bone meatball, corned beef tail tri-tip 
+flank capicola alcatra spare ribs. Flank tail pork loin pork belly sirloin tri-tip.</p>
 
 {% endblock %}
