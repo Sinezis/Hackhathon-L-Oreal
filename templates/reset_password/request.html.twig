@@ -1,22 +1,50 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/png" href="{{ asset('build/images/logo-wild-code-school.svg') }}"/>
+        <title>{% block title %}Dashboard{% endblock %}</title>
 
-{% block title %}Reset your password{% endblock %}
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
 
+        {% block javascripts %}		
+            {{ importmap('app') }}
+        {% endblock %}
+    </head>
+<body class="body_login">
 {% block body %}
     {% for flash_error in app.flashes('reset_password_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-    <h1>Reset your password</h1>
+    <header>
+            {# Navbar top #}
+            <nav class="navbar_login">
+                <img src="{{ asset('images/logo-loreal-reveal-yourself-blanc.svg') }}" class="logo_dashboard">
+            </nav>
+        </header>
+    <section class="section_login">
+     <div class="div_login">
+    <h1 class="title_login mb-4">Reset your password</h1>
 
     {{ form_start(requestForm) }}
-        {{ form_row(requestForm.email) }}
-        <div>
+        {{ form_row(requestForm.email,  {'attr': {'class': 'input_login mb-3', 'placeholder': 'email' }}) }}
+        <div class="mb-3">
             <small>
                 Enter your email address, and we will send you a
                 link to reset your password.
             </small>
         </div>
 
-        <button class="btn btn-primary">Send password reset email</button>
+        <button class="btn btn-primary">Send</button>
     {{ form_end(requestForm) }}
+    </div>
+    </section>
+     <footer class="footer_login">
+            <p>Créé avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
+        </footer>
 {% endblock %}
+</body>
+</html>
