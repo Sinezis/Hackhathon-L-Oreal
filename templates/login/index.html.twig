@@ -15,7 +15,7 @@
         {% endblock %}
     </head>
 
-<body class="body_dashboard">
+<body class="body_login">
 {% block body %}
         <header>
             {# Navbar top #}
@@ -39,7 +39,6 @@
                     </div>
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                         <input type="hidden" name="_target_path" value="{{ path('dashboard_home')}}">
-
                         <button type="submit" class="btn-primary">Se connecter</button>
                     </form>
             </div>
@@ -49,7 +48,7 @@
         </section>
         {# Footer #}
         <footer class="footer_login">
-            <p>Crée avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
+            <p>Créé avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
         </footer>
         {% endblock %}		
     </body>

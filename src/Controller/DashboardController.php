@@ -40,7 +40,7 @@ class DashboardController extends AbstractController
         $form = $this->createForm(ImageUploadType::class, $picture);
         $form->handleRequest($request);
 
-        
+
         if ($form->isSubmitted()) {
             $entityManager->persist($picture);
             $entityManager->flush();
@@ -51,11 +51,11 @@ class DashboardController extends AbstractController
         return $this->render('dashboard/images.html.twig', ['form' => $form]);
     }
 
-    #[Route('/imageName/{id}', name:'app_imageName')]
+    #[Route('/imageName/{id}', name: 'app_imageName')]
     public function generateName(Picture $picture): Response
     {
         $product = $picture->getProduct();
-    
+
         $productName = str_replace(' ', '-', $product->getProductName());
         $productCategory = str_replace(' ', '-', $product->getProductCategory());
         $productBrand = str_replace(' ', '-', $product->getBrand());

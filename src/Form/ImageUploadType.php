@@ -22,22 +22,30 @@ class ImageUploadType extends AbstractType
             ->add('product', EntityType::class, [
                 'class' => Product::class,
                 'choice_label' => 'productName',
+                'label' => false,
             ])
             ->add('productFile', VichFileType::class, [
                 'required'      => false,
                 'allow_delete'  => true,
+                'label' => false,
             ])
-            ->add('metaDescription', TextareaType::class)
-            ->add('height', IntegerType::class)
-            ->add('width', IntegerType::class)
+            ->add('metaDescription', TextareaType::class, [
+                'label' => false
+            ])
+            ->add('height', IntegerType::class, [
+                'label' => false
+            ])
+            ->add('width', IntegerType::class, [
+                'label' => false
+            ])
             ->add('extension', ChoiceType::class, [
+                'label' => false,
                 'choices' => [
                     '.jpg' => '.jpg',
                     '.png' => '.png',
                     '.svg' => '.svg',
                     '.webp' => '.webp',
-                    ]
+                ]
             ]);
-
     }
 }
