@@ -62,7 +62,9 @@ class DashboardController extends AbstractController
         $pictureExtension = $picture->getExtension();
         $generatedName = strtolower($productName . '-' . $productCategory . '-' . $productBrand . $pictureExtension);
 
-        $picture->setName($generatedName);
+        //To change directly the name of the picture, but not working in this state
+        //as VichUploader has its own Naming pattern
+        //$picture->setName($generatedName);
 
         return $this->render('dashboard/generate_name.html.twig', ['generatedName' => $generatedName, 'picture' => $picture]);
     }
