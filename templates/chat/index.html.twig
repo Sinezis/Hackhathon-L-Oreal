@@ -17,13 +17,36 @@
 		}
 	</style>
 
+	<header>
+            {# Navbar top #}
+            <nav class="navbar_login">
+                <img src="{{ asset('images/logo-loreal-reveal-yourself-blanc.svg') }}" class="logo_dashboard">
+            </nav>
+        </header>
+	<main class="mb-5">
+		<div class="section-hero"
+			style="background-image:url('{{ asset('images/vecteezy_content-jeune-femme-repos-sur-a-la-mode-mere-s-epaule-contre_27183681.jpg')}}')" alt="Portraits de femmes">  
+		</div>
+		<div class="container"> 
+			<div>
+				<span class="h2-form">Reveal</span>
+				<span class="h1-form">Yourself</span>
+			</div>
+
 	<div class="example-wrapper">
 		<div>
 			{% for message in chat.messages %}
-				<div>
+			<h3>Votre message</h3>
+				<div class="h6-form1">
 					{{ message.send }}</div>
-				<div>{{ message.received }}</div>
+					<br>
+			<h3>Vos produits L'oréal suggérés</h3>
+				<div class="h6-form1">{{ message.received }}</div>
 			{% endfor %}
 		</div>
 	</div>
+</main>
+	<footer class="footer_form">
+    <p>Créé avec<i class="fa-solid fa-heart icon_footer"></i>Wild Code School x L'Oréal</p>
+</footer>
 {% endblock %}
